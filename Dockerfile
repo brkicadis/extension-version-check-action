@@ -2,7 +2,7 @@
 FROM python:3
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
-COPY src/main.py /main.py
+COPY src/main.py /usr/bin/main.py
 COPY shop-extensions.json /shop-extensions.json
 COPY entrypoint.sh /entrypoint.sh
 

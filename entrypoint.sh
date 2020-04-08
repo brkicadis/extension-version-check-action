@@ -2,4 +2,4 @@
 
 set -e
 
-python main.py
+python /usr/bin/main.py
