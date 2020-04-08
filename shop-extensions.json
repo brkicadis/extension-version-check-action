@@ -1,0 +1,14 @@
+{
+  "extensions": {
+    "woocommerce": [
+      {
+        "filename": "woocommerce-wirecard-payment-gateway.php",
+        "version": "Version"
+      },
+      {
+        "filename": "readme.txt",
+        "version": "Stable tag"
+      }
+    ]
+  }
+}
