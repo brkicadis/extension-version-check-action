@@ -37,7 +37,7 @@ def current_release_version():
 
 def version_differences(file_name, content, version):
     #file_name = open('/Users/adis.brkic/IdeaProjects/woocommerce-ee/wirecard-woocommerce-extension/woocommerce-wirecard-payment-gateway.php', 'r')
-    file_name = open(os.path.abspath(subprocess.check_output("find ../" + 'woocommerce-ee' + " -name " + file_name, shell=True, text=True)).rstrip(), 'r')
+    file_name = open(os.path.abspath(subprocess.check_output("find ." + " -name " + file_name, shell=True, text=True)).rstrip(), 'r')
     for file_line in file_name.readlines():
         if version in file_line and str(last_released_version()) in file_line:
             content.append(file_line.replace(str(last_released_version()), current_release_version()))
@@ -53,7 +53,7 @@ def update_lines():
         content = []
         version_differences(extension_parameters.filename, content, extension_parameters.version)
         # file_name = open('/Users/adis.brkic/IdeaProjects/woocommerce-ee/wirecard-woocommerce-extension/woocommerce-wirecard-payment-gateway.php', 'w')
-        file_name = open(os.path.abspath(subprocess.check_output("find ../" + 'woocommerce-ee' + " -name " + extension_parameters.filename, shell=True, text=True)).rstrip(), 'w')
+        file_name = open(os.path.abspath(subprocess.check_output("find ." + " -name " + extension_parameters.filename, shell=True, text=True)).rstrip(), 'w')
         for file_line in content:
             file_name.write(file_line)
         file_name.close()
