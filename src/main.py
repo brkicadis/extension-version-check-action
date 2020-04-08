@@ -19,6 +19,7 @@ def json_decoder(extensions_parameters):
 
 def json_content():
     json_string = json.dumps(json_file('.github/shop-extensions.json'), indent=4)
+    print(json_string)
     return json.loads(json_string, object_hook=json_decoder)
 
 
@@ -49,6 +50,7 @@ def version_differences(file_name, content, version):
 
 def update_lines():
     for extension_parameters in getattr(json_content().extensions, str(sys.argv[2]).replace("-ee", '')):
+        print(extension_parameters)
         content = []
         version_differences(extension_parameters.filename, content, extension_parameters.version)
         # file_name = open('/Users/adis.brkic/IdeaProjects/woocommerce-ee/wirecard-woocommerce-extension/woocommerce-wirecard-payment-gateway.php', 'w')
