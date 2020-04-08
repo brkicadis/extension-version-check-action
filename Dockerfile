@@ -1,6 +1,7 @@
 # Container image that runs your code
 FROM python:3
 
+RUN pip install lastversion
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY src/main.py /usr/bin/main.py
 COPY shop-extensions.json /shop-extensions.json

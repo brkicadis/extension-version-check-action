@@ -24,12 +24,14 @@ def json_content():
 
 def last_released_version():
     repository_to_clone = "wirecard/" + sys.argv[2]
+    print(lastversion.latest(repository_to_clone, output_format='version', pre_ok=True))
     return lastversion.latest(repository_to_clone, output_format='version', pre_ok=True)
 
 
 def current_release_version():
     repo = git.Repo(search_parent_directories=True)
     branch = repo.active_branch
+    print(re.sub('[^\d\.]', '', branch.name))
     return re.sub('[^\d\.]', '', branch.name)
 
 
