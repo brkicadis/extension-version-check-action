@@ -18,12 +18,12 @@ def json_decoder(extensions_parameters):
 
 
 def json_content():
-    json_string = json.dumps(json_file('shop-extensions.json'), indent=4)
+    json_string = json.dumps(json_file('.github/shop-extensions.json'), indent=4)
     return json.loads(json_string, object_hook=json_decoder)
 
 
 def last_released_version():
-    repository_to_clone = "wirecard/" + sys.argv[2]
+    repository_to_clone = "brkicadis/" + sys.argv[2]
     print(lastversion.latest(repository_to_clone, output_format='version', pre_ok=True))
     return lastversion.latest(repository_to_clone, output_format='version', pre_ok=True)
 
