@@ -6,4 +6,4 @@ ADD src/main.py /main.py
 ADD shop-extensions.json /shop-extensions.json
 
 # Code file to execute when the docker container starts up (`entrypoint.sh`)
-CMD [ "python", "./main.py" ]
+CMD [ "python", "main.py" ]
