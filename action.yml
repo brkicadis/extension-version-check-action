@@ -1,5 +1,12 @@
 name: 'Change release version'
-description: 'Greet someone and record the time'
+description: 'Automatically change release version'
+inputs:
+  repository:  # id of input
+    description: 'Repository name'
+    required: true
+    default: ''
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  args:
+    - ${{ inputs.repository }}
