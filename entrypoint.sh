@@ -6,4 +6,5 @@
 
 pwd
 ls
-python /src/main.py
+find . -name main.py
+python main.py
