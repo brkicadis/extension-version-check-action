@@ -1,8 +1,8 @@
 # Container image that runs your code
 FROM alpine:3.10
 
-RUN sudo apt-get update
-RUN sudo apt-get install python3.7
+RUN apt-get update
+RUN apt-get install python3.7
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
 COPY src/main.py /main.py
