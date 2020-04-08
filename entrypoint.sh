@@ -1,3 +1,5 @@
 #!/bin/sh -l
 
-python /src/main.py
+echo "Hello $1"
+time=$(date)
+echo "::set-output name=time::$time"
