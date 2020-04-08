@@ -1,0 +1,6 @@
+name: 'Extension Version Check Action'
+description: 'Replace latest extension version'
+author: 'Wirecard'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
