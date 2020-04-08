@@ -1,6 +1,8 @@
 FROM python:3
 
-COPY . /usr/local/bin
+ADD . /app
+WORKDIR /app
 # add dependencies
 # RUN pip install pystrich
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+ENV PYTHONPATH /app
+CMD ["/app/src/main.py"]
