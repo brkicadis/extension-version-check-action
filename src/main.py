@@ -38,7 +38,8 @@ def version_differences(file_name, content, version):
     file_name = open(os.path.abspath(subprocess.check_output("find ../" + sys.argv[2] + " -name " + file_name, shell=True, text=True)).rstrip(), 'r')
     for file_line in file_name.readlines():
         if version in file_line and str(last_released_version()) in file_line:
-            content.append(file_line.replace(str(last_released_version()), sys.argv[1]))
+            content.append(file_line.replace(str(last_released_version()), current_release_version()))
+            # content.append(file_line.replace(str(last_released_version()), sys.argv[1]))
         else:
             content.append(file_line)
     return content
