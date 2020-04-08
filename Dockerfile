@@ -1,8 +1,5 @@
-FROM python:3
+FROM alpine:3.10
 
-ADD . /app
-WORKDIR /app
-# add dependencies
-# RUN pip install pystrich
-ENV PYTHONPATH /app
-CMD ["/app/src/main.py"]
+COPY entrypoint.sh /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
