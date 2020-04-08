@@ -2,6 +2,7 @@
 FROM python:3
 
 RUN pip install lastversion
+RUN pip install gitpython
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY src/main.py /usr/bin/main.py
 COPY shop-extensions.json /shop-extensions.json
