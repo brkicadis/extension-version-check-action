@@ -19,12 +19,11 @@ def json_decoder(extensions_parameters):
 
 def json_content():
     json_string = json.dumps(json_file('.github/shop-extensions.json'), indent=4)
-    print(json_string)
     return json.loads(json_string, object_hook=json_decoder)
 
 
 def last_released_version():
-    repository_to_clone = "brkicadis/" + sys.argv[2]
+    repository_to_clone = "brkicadis/" + 'woocommerce-ee'
     print(lastversion.latest(repository_to_clone, output_format='version', pre_ok=True))
     return lastversion.latest(repository_to_clone, output_format='version', pre_ok=True)
 
@@ -38,7 +37,7 @@ def current_release_version():
 
 def version_differences(file_name, content, version):
     #file_name = open('/Users/adis.brkic/IdeaProjects/woocommerce-ee/wirecard-woocommerce-extension/woocommerce-wirecard-payment-gateway.php', 'r')
-    file_name = open(os.path.abspath(subprocess.check_output("find ../" + sys.argv[2] + " -name " + file_name, shell=True, text=True)).rstrip(), 'r')
+    file_name = open(os.path.abspath(subprocess.check_output("find ../" + 'woocommerce-ee' + " -name " + file_name, shell=True, text=True)).rstrip(), 'r')
     for file_line in file_name.readlines():
         if version in file_line and str(last_released_version()) in file_line:
             content.append(file_line.replace(str(last_released_version()), current_release_version()))
@@ -49,12 +48,12 @@ def version_differences(file_name, content, version):
 
 
 def update_lines():
-    for extension_parameters in getattr(json_content().extensions, str(sys.argv[2]).replace("-ee", '')):
+    for extension_parameters in getattr(json_content().extensions, str('woocommerce-ee').replace("-ee", '')):
         print(extension_parameters)
         content = []
         version_differences(extension_parameters.filename, content, extension_parameters.version)
         # file_name = open('/Users/adis.brkic/IdeaProjects/woocommerce-ee/wirecard-woocommerce-extension/woocommerce-wirecard-payment-gateway.php', 'w')
-        file_name = open(os.path.abspath(subprocess.check_output("find ../" + sys.argv[2] + " -name " + extension_parameters.filename, shell=True, text=True)).rstrip(), 'w')
+        file_name = open(os.path.abspath(subprocess.check_output("find ../" + 'woocommerce-ee' + " -name " + extension_parameters.filename, shell=True, text=True)).rstrip(), 'w')
         for file_line in content:
             file_name.write(file_line)
         file_name.close()
