@@ -1,7 +1,7 @@
 name: 'Change release version'
 description: 'Automatically change release version'
 inputs:
-  repository:  # id of input
+  repository:
     description: 'Repository name'
     required: true
     default: ''
