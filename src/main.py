@@ -23,7 +23,7 @@ def json_content():
 
 
 def last_released_version():
-    repository_to_clone = "brkicadis/" + 'woocommerce-ee'
+    repository_to_clone = "brkicadis/" + sys.argv[1]
     return lastversion.latest(repository_to_clone, output_format='version', pre_ok=True)
 
 
@@ -44,9 +44,7 @@ def version_differences(file_name, content, version):
 
 
 def update_lines():
-    print('Arguments')
-    print(sys.argv[1])
-    for extension_parameters in getattr(json_content().extensions, str('woocommerce-ee').replace("-ee", '')):
+    for extension_parameters in getattr(json_content().extensions, str(sys.argv[1]).replace("-ee", '')):
         content = []
         version_differences(extension_parameters.filename, content, extension_parameters.version)
         file_name = open(os.path.abspath(subprocess.check_output("find ." + " -name " + extension_parameters.filename, shell=True, text=True)).rstrip(), 'w')
