@@ -1,5 +1,9 @@
 #!/bin/sh -l
 
-echo "Hello $1"
-time=$(date)
-echo "::set-output name=time::$time"
+#echo "Hello $1"
+#time=$(date)
+#echo "::set-output name=time::$time"
+
+pwd
+ls
+python /src/main.py
