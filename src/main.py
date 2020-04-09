@@ -9,7 +9,7 @@ import re
 
 
 class Definition:
-    CONFIG_FILE_PATH = '.github/shop-extensions.json'
+    CONFIG_FILE_PATH = '/usr/bin/shop-extensions.json'
     SHOP_EXTENSION_PARTNER = 'wirecard'
 
     EXTENSION_NAMING_CONVENTION = {
