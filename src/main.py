@@ -9,7 +9,7 @@ import re
 
 
 class Definition:
-    CONFIG_FILE_NAME = 'shop-extensions.json'
+    CONFIG_FILE_PATH = '.github/shop-extensions.json'
     SHOP_EXTENSION_PARTNER = 'wirecard'
 
     EXTENSION_NAMING_CONVENTION = {
@@ -88,7 +88,7 @@ class ExtensionVersionUpdater:
     def update_lines(self):
         naming_convention = Definition.EXTENSION_NAMING_CONVENTION
         if self.extension_name in naming_convention:
-            json_content = JsonFile(Definition.CONFIG_FILE_NAME)
+            json_content = JsonFile(Definition.CONFIG_FILE_PATH)
             for extension_parameters in getattr(json_content.json_content().extensions, naming_convention[self.extension_name]):
                 content = []
                 release_version = ReleaseVersion(extension_parameters.filename, content, extension_parameters.version)
