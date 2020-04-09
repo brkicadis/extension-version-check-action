@@ -54,7 +54,8 @@ class ReleaseVersion:
         :return: str
         """
         repository_name = sys.argv[1]
-        repository_to_clone = Definition.SHOP_EXTENSION_PARTNER + "/" + repository_name
+        repository_to_clone = "brkicadis/" + repository_name
+        #repository_to_clone = Definition.SHOP_EXTENSION_PARTNER + "/" + repository_name
         return lastversion.latest(repository_to_clone, output_format='version', pre_ok=True)
 
     @staticmethod
