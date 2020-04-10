@@ -86,7 +86,7 @@ class ExtensionVersionUpdater:
     def __init__(self, extension_name):
         self.extension_name = extension_name
 
-    def update_lines(self):
+    def update_release_version(self):
         naming_convention = Definition.EXTENSION_NAMING_CONVENTION
         if self.extension_name in naming_convention:
             json_content = JsonFile(Definition.CONFIG_FILE_PATH)
@@ -103,4 +103,4 @@ class ExtensionVersionUpdater:
 if __name__ == "__main__":
     extension_name = sys.argv[1]
     extension_updater = ExtensionVersionUpdater(extension_name)
-    extension_updater.update_lines()
+    extension_updater.update_release_version()
