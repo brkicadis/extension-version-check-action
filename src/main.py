@@ -89,13 +89,10 @@ class ExtensionVersionUpdater:
     def get_filename_path(file_name):
         file_path = None
         current_path = os.getcwd()
-        print(current_path)
-        parent_directory = os.path.abspath(os.path.join(current_path, os.pardir))
-        print(parent_directory)
-        for root, dirs, files in os.walk(parent_directory):
+        for root, dirs, files in os.walk(current_path):
+            print(files)
             if file_name in files:
                 file_path = os.path.abspath(file_name)
-        print(file_path)
         return file_path
 
     def update_release_version(self):
