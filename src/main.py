@@ -6,6 +6,7 @@ import subprocess
 import sys
 import git
 import re
+import argparse
 
 
 class Definition:
@@ -112,6 +113,9 @@ class ExtensionVersionUpdater:
 
 
 if __name__ == "__main__":
-    extension_name = sys.argv[1]
+    parser = argparse.ArgumentParser(description='Provide shop extension name as an argument.')
+    parser.add_argument('repository', metavar='extension name', type=str, help='shop extension name e.g. woocommerce-ee')
+    args = parser.parse_args()
+    extension_name = args.repository
     extension_updater = ExtensionVersionUpdater(extension_name)
     extension_updater.update_release_version()
